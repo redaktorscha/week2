@@ -6,13 +6,18 @@
 
 const getResult = async (url) => {
     //console.log(url);
-
-    const resp = await fetch(`${url}`).catch(err => console.log(err));
-    if (resp.ok) {
-        return await resp.text();
+    try {
+        const resp = await fetch(`${url}`).catch(err => console.log(err));
+        if (resp.ok) {
+            return await resp.text();
+        }
+        //console.log(`Error fetch: ${resp.status}`);
+        return null;
+    } catch (e) {
+        console.log(e);
+        return '';
     }
-    //console.log(`Error fetch: ${resp.status}`);
-    return null;
+
 }
 
 /**
