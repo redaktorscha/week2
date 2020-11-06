@@ -5,13 +5,13 @@
  */
 
 const getResult = async (url) => {
-    console.log(url);
+    //console.log(url);
 
     const resp = await fetch(`${url}`).catch(err => console.log(err));
     if (resp.ok) {
         return await resp.text();
     }
-    console.log(`Error fetch: ${resp.status}`);
+    //console.log(`Error fetch: ${resp.status}`);
     return null;
 }
 
@@ -20,10 +20,10 @@ const getResult = async (url) => {
  * @param {string} input - input value
  */
 const updateInputValue = async (input) => {
-    console.log(input.value);
+    //console.log(input.value);
     if (input.value) {
         const newInputValue = await getResult(input.value);
-        console.log(newInputValue);
+        //console.log(newInputValue);
         input.value = newInputValue;
     }
     return;
